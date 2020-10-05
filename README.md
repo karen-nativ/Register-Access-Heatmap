@@ -1,5 +1,7 @@
 # Register Access Heatmap
-This tool displays a heatmap of accesses to registers in e code.
+This tool displays a heatmap of accesses to registers in *e* code.
+
+[ More *e* code examples in https://github.com/efratcdn/spmn-e-utils ]
 
 ----------------------
 Prerequisites
