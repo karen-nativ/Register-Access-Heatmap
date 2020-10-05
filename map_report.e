@@ -20,8 +20,8 @@ extend sys {
         set_config(print, radix, hex);
     };
     
-    @import_python(module_name="create_heatmap", python_name="draw_heatmap")
-    draw_heatmap(all_reg_info : list of reg_use) is imported;
+    @import_python(module_name="create_heatmap", python_name="heatmap_from_reg_use")
+    heatmap_from_reg_use(all_reg_info : list of reg_use) is imported;
 
     //Increments the write access amount of the given register
     add_write(reg_str : string) is {
@@ -55,7 +55,7 @@ extend sys {
     
     //Runs at the end of the tests and draws the heatmap
     extract() is also {
-	    draw_heatmap(reg_usage::reg_uses.as_a(list of reg_use));
+	    heatmap_from_reg_use(reg_usage::reg_uses.as_a(list of reg_use));
     };
 };
 
