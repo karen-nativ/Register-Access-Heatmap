@@ -12,7 +12,6 @@ environment you are running this script in:
    * `Slider`
    * `RadioButtons`
 * `collections.namedtuple`
-* `random`
 * `math`
 
 
