@@ -7,7 +7,7 @@ Prerequisites
 This tool requires the following libraries/modules be installed within the Python
 environment you are running this script in:
 * `mpl_toolkits.axes_grid1.inset_locator.InsetPosition`
-* `matplotlib.pyplot`
+* `matplotlib.pyplot` (Matplotlib Version >= 3.1)
 * `matplotlib.widgets`
    * `Slider`
    * `RadioButtons`
