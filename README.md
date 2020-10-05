@@ -48,8 +48,19 @@ Usage
 To run the tool, start the test by running the following command:
 	`test`
 
+
+----------------------
+Examples
+----------------------
+These uses run on examples from the vr_ad utility:
+
+`specman -64 -c 'load vr_ad/examples/vr_ad_reg_cover.e map_report; test'`
+
+`specman -64 -c 'load vr_ad/examples/vr_ad_rw_from_any_tcm.e map_report; test'`
+
 ---------------------
 Output
 ----------------------
 The tool creates an interactive heatmap of the registers and the amount they have been accessed.
+
 The terminal running the figure will wait for the figure to be closed before running additional commands.
