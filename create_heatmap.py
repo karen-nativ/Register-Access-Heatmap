@@ -2,7 +2,6 @@ import matplotlib.pyplot as plt
 from matplotlib.widgets import Slider
 from matplotlib.widgets import RadioButtons
 from mpl_toolkits.axes_grid1.inset_locator import InsetPosition
-import random
 import math
 from collections import namedtuple
 
@@ -10,11 +9,10 @@ from collections import namedtuple
 
 # CONSTS
 INTERPOLATION_DICT = {'Gradient': 'bilinear', 'Sharp': 'none'}
-DUMMY_REGISTERS = {"LONG_REGISTER_NAME_"+ str(num) : (random.randrange(1,10), random.randrange(1, 10)) for num in range(1,100000)}
 PAGE_DISPLAY_AMOUNT = 5
-
-
-
+HEATMAP_COLORS = 'Greens'
+FONTSIZE = 10
+RADIO_BUTTON_BG_COLOR = 'lightgoldenrodyellow'
 
 class reg_use:
     pass
@@ -30,14 +28,14 @@ def draw_heatmap(all_reg_info):
     
     display_amount = min(len(reg_names), PAGE_DISPLAY_AMOUNT)
     all_vals = [item for sublist in reg_dict.values() for item in sublist]
-    img = ax.imshow([[min(all_vals)], [max(all_vals)]], aspect='auto', cmap='Greens', interpolation='bilinear', origin='upper') # First param is dummy data before it is updated
+    img = ax.imshow([[min(all_vals)], [max(all_vals)]], aspect='auto', cmap=HEATMAP_COLORS, interpolation='bilinear', origin='upper') # First param is dummy data before it is updated
     
 
 
     # DRAW X LABELS
     x_label_list = ['Read', 'Write']
     ax.set_xticks([-0.5, 0.5])
-    ax.set_xticklabels(x_label_list, fontsize=10)
+    ax.set_xticklabels(x_label_list, fontsize=FONTSIZE)
     
     update_scroll(plt, 0, img, ax, list(reg_dict.values()), list(reg_names), display_amount)
     
@@ -53,10 +51,10 @@ def draw_heatmap(all_reg_info):
     
     
     # DRAW RADIO BUTTONS
-    radio_ax = plt.axes([0, 0, 1, 1], facecolor='lightgoldenrodyellow') #[posx, posy, width, height]
+    radio_ax = plt.axes([0, 0, 1, 1], facecolor=RADIO_BUTTON_BG_COLOR) #[posx, posy, width, height]
     radio_pos = InsetPosition(ax, [0, 1.02, 0.3, 0.14])
     radio_ax.set_axes_locator(radio_pos)
-    radio = RadioButtons(radio_ax, ('Gradient', 'Sharp'))
+    radio = RadioButtons(radio_ax, INTERPOLATION_DICT.keys())
     
     def radio_func(label):
         current_interpolation = INTERPOLATION_DICT[label]
