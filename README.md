@@ -6,8 +6,8 @@ This tool displays a heatmap of accesses to registers in *e* code.
 ----------------------
 Prerequisites
 ----------------------
-This tool requires the following libraries/modules be installed within the Python
-environment you are running this script in:
+This tool requires Python version >= 3.0 and the following libraries/modules be installed within the Python
+environment:
 * `mpl_toolkits.axes_grid1.inset_locator.InsetPosition`
 * `matplotlib.pyplot` (Matplotlib Version >= 3.1)
 * `matplotlib.widgets`
